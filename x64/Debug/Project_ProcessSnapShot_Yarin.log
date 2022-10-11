@@ -1,0 +1,20 @@
+﻿  TakeSnapShot.c
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(133,10): warning C4101: 'szModName': unreferenced local variable
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(245,11): warning C4098: 'SingleSnapShot': 'void' function returning a value
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(377,11): warning C4101: 'szModName': unreferenced local variable
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(422,11): warning C4101: 'szModName': unreferenced local variable
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(465,11): warning C4098: 'AddProcessesInfo': 'void' function returning a value
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(615,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(624,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(626,12): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(632,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(634,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(640,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(642,14): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(677,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(687,12): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(692,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(695,13): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(700,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\TakeSnapShot.c(703,14): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Project_ProcessSnapShot_Yarin.vcxproj -> C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\x64\Debug\Project_ProcessSnapShot_Yarin.exe

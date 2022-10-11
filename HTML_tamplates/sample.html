@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/cc618c1aa4.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Sample Page</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="header-menu">
+          <li>
+            <a class="sign" href="/index.html" target="_blank"
+              ><button class="btn">
+                <i class="fa-solid fa-house"></i> Home
+              </button></a
+            >
+          </li>
+          <li>
+            <a class="sign" href="/about.html" target="_blank"
+              ><button class="btn">
+                <i class="fa-solid fa-user"></i> About
+              </button></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Link</th>
+            <th>Process Count</th>
+            <th>Dll Count</th>
+            <th>WorkingSet Average</th>
+          </tr>
+          <tr>
+            <td>[[ID]]</td>
+            <td>[[Link]]</td>
+            <td>[[Process Count]]</td>
+            <td>[[Dll Count]]</td>
+            <td>[[WorkingSet Average]]</td>
+          </tr>
+        </table>
+      </h1>
+      <h2>Process List</h2>
+      <table>
+        <tr>
+          <th>Process ID</th>
+          <th>Process Name</th>
+          <th>PageFaultCount</th>
+          <th>WorkingSetSize</th>
+          <th>QuotaPagedPoolUsage</th>
+          <th>QuotaPeakPagedPoolUsage</th>
+          <th>PagefileUsage</th>
+          <th>Dll List</th>
+        </tr>
+        <tr>
+          <td>[[Process ID]]</td>
+          <td>[[Process Name]]</td>
+          <td>[[PageFaultCount]]</td>
+          <td>[[WorkingSetSize]]</td>
+          <td>[[QuotaPagedPoolUsage]]</td>
+          <td>[[QuotaPeakPagedPoolUsage]]</td>
+          <td>[[PagefileUsage]]</td>
+          <td>[[Dll List]]</td>
+        </tr>
+      </table>
+    </main>
+    <footer></footer>
+  </body>
+</html>
