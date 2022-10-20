@@ -21,16 +21,31 @@
     <ClCompile Include="LOG.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TakeSnapShot.c">
+    <ClCompile Include="SnapShots.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Files.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HTML.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LOG.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="structure_def.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapShots.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Files.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HTML.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

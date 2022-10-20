@@ -1,13 +1,11 @@
-//--------------------------------------------------------------------
+#pragma once
+#include "LOG.h"
 
 typedef struct DllList {
     char dllName[MAX_PATH];
     struct DllList* next;
     struct DllList* prev;
 } t_DllList;
-
-t_DllList* DllHead = NULL;
-t_DllList* DllTail = NULL;
 
 //--------------------------------------------------------------------
 
@@ -27,9 +25,6 @@ typedef struct ProcessList {
     struct ProcessList* prev;
 } t_ProcessList;
 
-t_ProcessList* ProcessHead = NULL;
-t_ProcessList* ProcessTail = NULL;
-
 //--------------------------------------------------------------------
 
 typedef struct SampleList {
@@ -45,9 +40,6 @@ typedef struct SampleList {
     struct SampleList* prev;
 } t_SampleList;
 
-t_SampleList* SampleHead = NULL;
-t_SampleList* SampleTail = NULL;
-
 //--------------------------------------------------------------------
 
 typedef struct DllProcessesUsers {
@@ -55,9 +47,6 @@ typedef struct DllProcessesUsers {
     struct DllProcessesUsers* next;
     struct DllProcessesUsers* prev;
 } t_DllProcessesUsers;
-
-t_DllProcessesUsers* DllProcessesHead = NULL;
-t_DllProcessesUsers* DllProcessesTail = NULL;
 
 //--------------------------------------------------------------------
 
@@ -69,9 +58,6 @@ typedef struct GeneralDllList {
     struct GeneralDllList* prev;
 } t_GeneralDllList;
 
-t_GeneralDllList* GeneralDllHead = NULL;
-t_GeneralDllList* GeneralDllTail = NULL;
-
 //--------------------------------------------------------------------
 
 typedef struct FileHeader {
@@ -79,14 +65,3 @@ typedef struct FileHeader {
     int samples;
     char reserve[1000];
 }t_FileHeader;
-
-//--------------------------------------------------------------------
-
-unsigned int sampleCount = 0;
-unsigned int processCount = 0;
-unsigned int dllCount = 0;
-unsigned int sampleDllCount = 0;
-unsigned int GeneralDllCount = 0;
-unsigned int DllUsersCount = 0;
-
-char FileNameHolder[50];

@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(137, 137, 137);
+  color: rgb(250, 244, 244);
+  font-family: "DynaPuff";
+}
+header {
+  background-color: rgb(76, 76, 76);
+  position: sticky;
+  top: 0;
+  border-bottom: 2px double red;
+  border-top: 2px double red;
+  width: 160%;
+}
+main {
+  margin: 25px;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding-left: 25px;
+  gap: 25px;
+}
+.btn {
+  background-color: red;
+  color: rgb(250, 244, 244);
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 25px;
+  transition: 0.4s;
+}
+.btn:hover {
+  background-color: rgb(255, 69, 69);
+  cursor: pointer;
+  transform: scale(1.2);
+}
+a {
+  text-decoration: none;
+  color: rgb(255, 132, 61);
+}
+a:hover {
+  color: red;
+}
+table {
+  table-layout: fixed;
+  border: 2px double rgb(254, 161, 161);
+  border-radius: 10px;
+  border-collapse: collapse;
+  text-align: center;
+  width: 160%;
+}
+th {
+  padding: 5px;
+  border: 2px solid rgb(254, 161, 161);
+  word-wrap: break-word;
+}
+td {
+  padding: 5px;
+  white-space: nowrap;
+  overflow: auto;
+}
+h1 {
+  background-color: red;
+  padding: 10px;
+  border: 2px double rgb(254, 161, 161);
+  border-radius: 10px;
+  width: fit-content;
+}
+h2 {
+  word-wrap: break-word;
+}
+tr:nth-child(even) {
+  background-color: rgb(76, 76, 76);
+}
+tr:nth-child(odd) {
+  background-color: rgb(27, 27, 27);
+}
+tr:first-of-type {
+  position: sticky;
+  top: 60.6px;
+  background-color: red;
+}
+select {
+  padding: 5px;
+  overflow: scroll;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100px;
+}
+
+@media (max-width: 500px) {
+  th {
+    display: none;
+  }
+  table,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+    border: none;
+    z-index: -1;
+  }
+  tr {
+    margin-bottom: 15px;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}

@@ -127,12 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Files.c" />
+    <ClCompile Include="HTML.c" />
     <ClCompile Include="LOG.c" />
     <ClCompile Include="Project_ProcessSnapShot_Yarin.c" />
-    <ClCompile Include="TakeSnapShot.c" />
+    <ClCompile Include="SnapShots.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Files.h" />
+    <ClInclude Include="HTML.h" />
     <ClInclude Include="LOG.h" />
+    <ClInclude Include="SnapShots.h" />
     <ClInclude Include="structure_def.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
