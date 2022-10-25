@@ -8,6 +8,8 @@
 #pragma warning(disable:4996)
 #include "SnapShots.h"
 
+#define gotoxy(x,y) printf("\033[%d;%dH", (y), (x))
+
 t_DllList* DllHead = NULL;
 t_DllList* DllTail = NULL;
 
@@ -436,6 +438,10 @@ void AddMemoryInfo(DWORD processID, unsigned int sampleCount, char time[25])
 	}
 	else //creates new process in process list (if searchProcess function returned NULL)
 	{
+		if (!strstr(processName, "exe") || !strstr(processName, "EXE"))
+		{
+			return;
+		}
 		t_ProcessList* newP = (t_ProcessList*)malloc(sizeof(t_ProcessList));
 		newP->processID = processID;
 		newP->sampleNum = sampleCount;
@@ -529,12 +535,13 @@ void SnapShot20()
 {
 	SingleSnapShot(0); //creating new sample as a value adding base 
 
-	printf("Taking Info Shots\n%d\n", 1);
+	printf("Taking Info Shots\nshot count: %d\n", 1);
 
 	for (int i = 1; i < 20; i++)
 	{
 		Sleep(1000);
-		printf("%d\n", i + 1);
+		gotoxy(1, 2);
+		printf("shot count: %d\n", i + 1);
 		AddProcessesInfo(); //Adding all information to the value base
 	}
 	printf("\n");
@@ -550,8 +557,8 @@ void SnapShot20()
 void LongSnapShot()
 {
 	SingleSnapShot(0); //creating new sample as a value adding base 
-	printf("Press \"E\" when you done (make sure caps lock is on)\n");
-	printf("Taking Info Shots\n%d\n", 1);
+	printf("Press \"E\" when you done\n");
+	printf("Taking Info Shots\nshot count: %d\n", 1);
 
 	int pause = 1;
 	int shotCount = 2;
@@ -559,13 +566,14 @@ void LongSnapShot()
 	do
 	{
 		Sleep(1000);
-		printf("%d\n", shotCount);
+		gotoxy(1, 3);
+		printf("shot count: %d\n", shotCount);
 		AddProcessesInfo(); //Adding all information to the value base
 		shotCount++;
 		if (kbhit()) //event listener waiting user to end adding information
 		{
 			char ch1 = getch();
-			if (ch1 == 'E')
+			if (ch1 == 'E' || ch1 == 'e')
 			{
 				pause = 0;
 			}

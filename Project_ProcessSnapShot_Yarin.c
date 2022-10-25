@@ -8,6 +8,19 @@
 #pragma warning (disable : 4996)
 #include "Files.h"
 
+#define clear() printf("\033[H\033[J")
+
+int userLogCounter = 0;
+char userActions[10000];
+
+void userActionsLog(char action[100])
+{
+    userLogCounter++;
+    char tempAction[100];
+    sprintf(tempAction, "\n%d - %s", userLogCounter, action);
+    strcat(userActions, tempAction);
+}
+
 int main()
 {
     //currect time string generator
@@ -25,24 +38,30 @@ int main()
     char ind;
     do
     {
-        printf("*********MENU*********\n~ Type Option Number For Execution ~\n1.Take One SnapShot.\n2.Take 20 Seconds SnapShot.\n3.Take Long SnapShot.\n4.Generate HTML Report.\n5.Reset Collections.\n6.Save in File.\n7.Load from File.\n8.Quit\ntype here:");
+        Sleep(1500);
+        clear();
+        printf("*********MENU*********\n~ Type Option Number For Execution ~\n1.Take One SnapShot.\n2.Take 20 Seconds SnapShot.\n3.Take Long SnapShot.\n4.Generate HTML Report.\n5.Reset Collections.\n6.Save in File.\n7.Load from File.\n8.Print User Actions Log\n9.Quit.\ntype here:");
         ind = getch();
         printf("\n\n");
+        clear();
         switch (ind)
         {
         case '1':
             LogEvent("taking single SnapShot");
             SingleSnapShot(1);
+            userActionsLog("Single SnapShot");
             LogEvent("done single SnapShot");
             break;
         case '2':
             LogEvent("taking 20 seconds SnapShot");
             SnapShot20();
+            userActionsLog("20 Seconds SnapShot");
             LogEvent("done 20 seconds SnapShot");
             break;
         case '3':
             LogEvent("taking long SnapShot");
             LongSnapShot();
+            userActionsLog("Long SnapShot");
             LogEvent("done long SnapShot");
             break;
         case '4':
@@ -64,6 +83,7 @@ int main()
                 printf("Faield To Generate Web Report - No Collections Found\n\n");
                 LogError("sample list is empty - no data to use");
             }
+            userActionsLog("Generate HTML");
             LogEvent("Generate HTML ends");
             break;
         case '5':
@@ -79,6 +99,7 @@ int main()
                 printf("Faield To Reset - No Collections Found\n\n");
                 LogError("sample list is empty - no data to reset");
             }
+            userActionsLog("Reset Collections");
             LogEvent("reset collections ends");
             break;
         case '6':
@@ -94,6 +115,7 @@ int main()
                 printf("Faield To Save File - No Collections Found\n\n");
                 LogError("sample list is empty - no data to save");
             }
+            userActionsLog("Save");
             LogEvent("save ends");
             break;
         case '7':
@@ -105,6 +127,8 @@ int main()
                 if (!strcmp(FileNameHolder, "last file is empty"))
                 {
                     printf("last file is empty\n\n");
+                    userActionsLog("Load");
+                    LogEvent("load ends");
                     break;
                 }
                 printf("Loading File\n\n");
@@ -123,9 +147,15 @@ int main()
                 }
                 printf("DONE!\n\n");
             }
+            userActionsLog("Load");
             LogEvent("load ends");
             break;
         case '8':
+            printf("%s", userActions);
+            printf("\n\n");
+            Sleep(3500);
+            break;
+        case '9':
             LogEvent("quit starts");
             printf("thank u for using my program - see u again soon =]\n\n");
             ResetCollections();
@@ -136,7 +166,7 @@ int main()
             printf("\n\n");
             break;
         }
-    } while (ind != '8');
+    } while (ind != '9');
     LogEvent("program ended");
 	return 0;
 }
