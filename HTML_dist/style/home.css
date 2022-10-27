@@ -90,7 +90,7 @@ select {
   width: 100px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   th {
     display: none;
   }
@@ -98,7 +98,7 @@ select {
   tr,
   td {
     display: block;
-    width: 100%;
+    width: 520px;
     border: none;
     z-index: -1;
   }
