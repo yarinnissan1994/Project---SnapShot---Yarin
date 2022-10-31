@@ -1,7 +1,44 @@
-﻿  SnapShots.c
-C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(167,10): warning C4101: 'szModName': unreferenced local variable
-C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(283,11): warning C4098: 'SingleSnapShot': 'void' function returning a value
-C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(418,11): warning C4101: 'szModName': unreferenced local variable
-C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(467,11): warning C4101: 'szModName': unreferenced local variable
-C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(511,11): warning C4098: 'AddProcessesInfo': 'void' function returning a value
+﻿  HTML.c
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(389,3): warning C4033: 'ReadAllFile' must return a value
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(395,15): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(408,3): warning C4033: 'ReadAllFile' must return a value
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(426,27): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(452,26): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(459,13): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(460,27): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(467,14): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(468,28): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(477,15): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(478,29): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(441,28): warning C4244: 'initializing': conversion from '__int64' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(511,26): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(516,12): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(517,26): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(526,14): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(527,28): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(533,14): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(534,28): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(541,14): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(542,28): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(551,15): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(552,29): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(558,15): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(559,29): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(567,14): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(568,28): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(500,28): warning C4244: 'initializing': conversion from '__int64' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(612,26): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(617,12): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(618,26): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(625,13): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(626,27): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(601,28): warning C4244: 'initializing': conversion from '__int64' to 'unsigned long', possible loss of data
+  SnapShots.c
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(174,10): warning C4101: 'szModName': unreferenced local variable
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(311,11): warning C4098: 'SingleSnapShot': 'void' function returning a value
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(460,11): warning C4101: 'szModName': unreferenced local variable
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(516,11): warning C4101: 'szModName': unreferenced local variable
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\SnapShots.c(567,11): warning C4098: 'AddProcessesInfo': 'void' function returning a value
+  Generating Code...
+C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\Project_ProcessSnapShot_Yarin\HTML.c(431): warning C4715: 'ReadAllFile': not all control paths return a value
   Project_ProcessSnapShot_Yarin.vcxproj -> C:\Users\User\source\repos\Project_ProcessSnapShot_Yarin\x64\Debug\Project_ProcessSnapShot_Yarin.exe

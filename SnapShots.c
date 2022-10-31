@@ -108,6 +108,13 @@ void GetMemoryInfo(DWORD processID, unsigned int sampleCount, char time[25], t_S
 {
 	//create memory alloction and place given parameters
 	t_ProcessList* currentP = (t_ProcessList*)malloc(sizeof(t_ProcessList));
+	if (!currentP)
+	{
+		err = GetLastError();
+		strE = strerror(err);
+		LogError(strE);
+		return;
+	}
 	currentP->processID = processID;
 	currentP->sampleNum = sampleCount;
 	currentP->next = NULL;
@@ -170,6 +177,13 @@ void GetMemoryInfo(DWORD processID, unsigned int sampleCount, char time[25], t_S
 			if (GetModuleFileNameEx(hProcess, hMods[i], Buffer2, MAX_PATH))
 			{
 				t_DllList* currentDll = (t_DllList*)malloc(sizeof(t_DllList));
+				if (!currentDll)
+				{
+					err = GetLastError();
+					strE = strerror(err);
+					LogError(strE);
+					continue;
+				}
 
 				//convert dll name to a char string
 				size_t numConverted;
@@ -209,13 +223,20 @@ void SampleDllCounter(t_SampleList* sample)
 				t_GeneralDllList* currentSD = tempHead;
 				if (!tempHead) //create General Dll list if dosent exist already
 				{
-					sampleDllCount++;
 					t_GeneralDllList* newD = (t_GeneralDllList*)malloc(sizeof(t_GeneralDllList));
+					if (!newD)
+					{
+						err = GetLastError();
+						strE = strerror(err);
+						LogError(strE);
+						return;
+					}
 					strcpy(newD->dllName, currentD->dllName);
 					tempHead = newD;
 					tempTail = newD;
 					newD->next = NULL;
 					newD->prev = NULL;
+					sampleDllCount++;
 				}
 				else
 				{
@@ -230,13 +251,20 @@ void SampleDllCounter(t_SampleList* sample)
 					}
 					if (stoper == 1)
 					{
-						sampleDllCount++;
 						t_GeneralDllList* newD = (t_GeneralDllList*)malloc(sizeof(t_GeneralDllList));
+						if (!newD)
+						{
+							err = GetLastError();
+							strE = strerror(err);
+							LogError(strE);
+							return;
+						}
 						strcpy(newD->dllName, currentD->dllName);
 						newD->prev = tempTail;
 						newD->next = NULL;
 						tempTail->next = newD;
 						tempTail = newD;
+						sampleDllCount++;
 					}
 				}
 				currentD = currentD->next;
@@ -287,6 +315,13 @@ void SingleSnapShot(int singleInd) //call all processes ID (singleInd indicates 
 	cProcesses = cbNeeded / sizeof(DWORD);
 
 	t_SampleList* currentS = (t_SampleList*)malloc(sizeof(t_SampleList));
+	if (!currentS)
+	{
+		err = GetLastError();
+		strE = strerror(err);
+		LogError(strE);
+		return;
+	}
 	currentS->DllCount = 0;
 	currentS->WorkingSetAverage = 0;
 	currentS->WorkingSetSum = 0;
@@ -334,6 +369,13 @@ void AddingNewDll(t_ProcessList* processAddress, char dllName[MAX_PATH])
 	}
 	//if dll was not found - adding new dll to process dll list
 	t_DllList* newD = (t_DllList*)malloc(sizeof(t_DllList));
+	if (!newD)
+	{
+		err = GetLastError();
+		strE = strerror(err);
+		LogError(strE);
+		return;
+	}
 	currentD = processAddress->DllList;
 	currentD->prev = newD;
 	strcpy(newD->dllName, dllName);
@@ -443,6 +485,13 @@ void AddMemoryInfo(DWORD processID, unsigned int sampleCount, char time[25])
 			return;
 		}
 		t_ProcessList* newP = (t_ProcessList*)malloc(sizeof(t_ProcessList));
+		if (!newP)
+		{
+			err = GetLastError();
+			strE = strerror(err);
+			LogError(strE);
+			return;
+		}
 		newP->processID = processID;
 		newP->sampleNum = sampleCount;
 		strcpy(newP->sampleTime, time);
@@ -470,6 +519,13 @@ void AddMemoryInfo(DWORD processID, unsigned int sampleCount, char time[25])
 				if (GetModuleFileNameEx(hProcess, hMods[i], Buffer2, MAX_PATH))
 				{
 					t_DllList* currentDll = (t_DllList*)malloc(sizeof(t_DllList));
+					if (!currentDll)
+					{
+						err = GetLastError();
+						strE = strerror(err);
+						LogError(strE);
+						continue;
+					}
 
 					size_t numConverted;
 					wcstombs_s(&numConverted, currentDll->dllName, MAX_PATH, Buffer2, MAX_PATH);

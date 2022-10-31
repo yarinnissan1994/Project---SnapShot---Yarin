@@ -20,13 +20,20 @@ void AddingNewDllUsers(char ProcessName[MAX_PATH])
 	t_DllProcessesUsers* currentP = DllProcessesHead;
 	if (!DllProcessesHead) //create Users list for every dll if dosent exist already
 	{
-		DllUsersCount++;
 		t_DllProcessesUsers* newP = (t_DllProcessesUsers*)malloc(sizeof(t_DllProcessesUsers));
+		if (!newP)
+		{
+			err = GetLastError();
+			strE = strerror(err);
+			LogError(strE);
+			return;
+		}
 		strcpy(newP->ProcessName, ProcessName);
 		DllProcessesHead = newP;
 		DllProcessesTail = newP;
 		newP->next = NULL;
 		newP->prev = NULL;
+		DllUsersCount++;
 	}
 	else
 	{
@@ -39,13 +46,20 @@ void AddingNewDllUsers(char ProcessName[MAX_PATH])
 			currentP = currentP->next;
 		}
 		//if process was not found - adding new process to General dll
-		DllUsersCount++;
 		t_DllProcessesUsers* newP = (t_DllProcessesUsers*)malloc(sizeof(t_DllProcessesUsers));
+		if (!newP)
+		{
+			err = GetLastError();
+			strE = strerror(err);
+			LogError(strE);
+			return;
+		}
 		strcpy(newP->ProcessName, ProcessName);
 		newP->prev = DllProcessesTail;
 		newP->next = NULL;
 		DllProcessesTail->next = newP;
 		DllProcessesTail = newP;
+		DllUsersCount++;
 	}
 }
 
@@ -93,13 +107,20 @@ void AddingNewGeneralDll(char dllName[MAX_PATH])
 	t_GeneralDllList* currentD = GeneralDllHead;
 	if (!GeneralDllHead) //create General Dll list if dosent exist already
 	{
-		GeneralDllCount++;
 		t_GeneralDllList* newD = (t_GeneralDllList*)malloc(sizeof(t_GeneralDllList));
+		if (!newD)
+		{
+			err = GetLastError();
+			strE = strerror(err);
+			LogError(strE);
+			return;
+		}
 		strcpy(newD->dllName, dllName);
 		GeneralDllHead = newD;
 		GeneralDllTail = newD;
 		newD->next = NULL;
 		newD->prev = NULL;
+		GeneralDllCount++;
 	}
 	else
 	{
@@ -112,13 +133,20 @@ void AddingNewGeneralDll(char dllName[MAX_PATH])
 			currentD = currentD->next;
 		}
 		//if dll was not found - adding new dll to General dll list
-		GeneralDllCount++;
 		t_GeneralDllList* newD = (t_GeneralDllList*)malloc(sizeof(t_GeneralDllList));
+		if (!newD)
+		{
+			err = GetLastError();
+			strE = strerror(err);
+			LogError(strE);
+			return;
+		}
 		strcpy(newD->dllName, dllName);
 		newD->prev = GeneralDllTail;
 		newD->next = NULL;
 		GeneralDllTail->next = newD;
 		GeneralDllTail = newD;
+		GeneralDllCount++;
 	}
 }
 
@@ -353,6 +381,13 @@ char* ReadAllFile(char* fileName)
 
 	// Get the file size
 	char* buff = (char*)malloc(1000);
+	if (!buff)
+	{
+		err = GetLastError();
+		strE = strerror(err);
+		LogError(strE);
+		return;
+	}
 	char* read;
 	int fileSize = 0;
 	while ((read = fgets(buff, 1000, f)))
@@ -365,6 +400,13 @@ char* ReadAllFile(char* fileName)
 	fileSize++;
 	// alloc space as file size
 	buff = (char*)malloc(fileSize);
+	if (!buff)
+	{
+		err = GetLastError();
+		strE = strerror(err);
+		LogError(strE);
+		return;
+	}
 
 	f = fopen(fileName, "r");
 	if (!f)
@@ -390,57 +432,6 @@ char* ReadAllFile(char* fileName)
 
 //--------------------------------------------------------------------
 
-void HomePgaeGenerator1()
-{
-	t_SampleList* currentS = SampleHead;
-	char* htmlTemplate = ReadAllFile("HTML_templates\\Tindex.html"); // get html template a from local folder
-	char HTML_REPLACE[10000];
-	char* found = strstr(htmlTemplate, HPSEPERATOR); // find token adress
-	unsigned long len = found - htmlTemplate; // found (bigger adress) - htmlTemplate (smaller adress)
-	char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + (strlen(HTML_REPLACE) * sampleCount) + (strlen(HTML_REPLACE) * GeneralDllCount));
-
-	strncpy(newFileSpace, htmlTemplate, len); // adding template till token position 
-	newFileSpace[len] = NULL;
-
-	while (currentS)
-	{
-		// creates sample table rows
-		sprintf(HTML_REPLACE, "<tr><td>%d</td><td><a href=\"sample%d.html\">Sample%d</a></td><td>%d</td><td>%d</td><td>%zu</td></tr>", currentS->sampleNum, currentS->sampleNum, currentS->sampleNum, currentS->ProcessesCount, currentS->DllCount, currentS->WorkingSetAverage);
-		strcat(newFileSpace, HTML_REPLACE);
-		len = len + strlen(HTML_REPLACE);
-		newFileSpace[len] = NULL;
-		currentS = currentS->next;
-		if (!currentS)
-		{
-			// creates general Dll table header
-			sprintf(HTML_REPLACE, "</table><br><br><h1>General Dll`s List (%d)</h1><table><tr><th>Dll Name</th><th>Dll Page</th></tr>", GeneralDllCount);
-			strcat(newFileSpace, HTML_REPLACE);
-			len = len + strlen(HTML_REPLACE);
-			newFileSpace[len] = NULL;
-			t_GeneralDllList* currentD = GeneralDllHead;
-			unsigned int counter = 0;
-			while (currentD)
-			{
-				//creates general Dll table rows
-				counter++;
-				sprintf(HTML_REPLACE, "<tr><td>%s</td><td><a href=\"dll%d.html\">Link</a></td></tr>", currentD->dllName, counter);
-				strcat(newFileSpace, HTML_REPLACE);
-				len = len + strlen(HTML_REPLACE);
-				newFileSpace[len] = NULL;
-				currentD = currentD->next;
-			}
-		}
-	}
-
-	strcat(newFileSpace, found + strlen(HPSEPERATOR)); // adding the rest of the template
-
-	HtmlSaveIntoFile("HTML_dist\\index.html", newFileSpace);
-
-
-	free(newFileSpace);
-	free(htmlTemplate);
-}
-
 void HomePgaeGenerator()
 {
 	t_SampleList* currentS = SampleHead;
@@ -449,6 +440,13 @@ void HomePgaeGenerator()
 	char* found = strstr(htmlTemplate, HPSEPERATOR); // find token adress
 	unsigned long len = found - htmlTemplate; // found (bigger adress) - htmlTemplate (smaller adress)
 	char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + (strlen(HTML_REPLACE) * sampleCount) + (strlen(HTML_REPLACE) * GeneralDllCount));
+	if (!newFileSpace)
+	{
+		err = GetLastError();
+		strE = strerror(err);
+		LogError(strE);
+		return;
+	}
 
 	strncpy(newFileSpace, htmlTemplate, len); // adding template till token position 
 	newFileSpace[len] = NULL;
@@ -494,84 +492,6 @@ void HomePgaeGenerator()
 
 //--------------------------------------------------------------------
 
-void SamplePgaeGenerator1(t_SampleList* currentS)
-{
-	char* htmlTemplate = ReadAllFile("HTML_templates\\Tsample.html"); // get html template a from local folder
-	char HTML_REPLACE[10000];
-	char* found = strstr(htmlTemplate, SPSEPERATOR); // find token adress
-	unsigned long len = found - htmlTemplate; // found (bigger adress) - htmlTemplate (smaller adress)
-	char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + (strlen(HTML_REPLACE) * currentS->ProcessesCount * currentS->ProcessList->DllCount));
-
-	strncpy(newFileSpace, htmlTemplate, len); // adding template till token position 
-	newFileSpace[len] = NULL;
-
-	// adding sample page header + processes table header
-	sprintf(HTML_REPLACE, "<h2>ID : %d</h2><h2>Sample Time : %s</h2><h2>Process Count : %d</h2><h2>Dll Count : %d</h2><h2>WorkingSet Average : %zu</h2><br><br><h1>Process List</h1><table><tr><th>Process ID</th><th>Process Name</th><th>PageFaultCount</th><th>WorkingSetSize</th><th>QuotaPagedPoolUsage</th><th>QuotaPeakPagedPoolUsage</th><th>PagefileUsage</th><th>Dll List</th></tr>", currentS->sampleNum, currentS->sampleTime, currentS->ProcessesCount, currentS->DllCount, currentS->WorkingSetAverage);
-	strcat(newFileSpace, HTML_REPLACE);
-	len = len + strlen(HTML_REPLACE);
-	newFileSpace[len] = NULL;
-	t_ProcessList* currentP = currentS->ProcessList;
-	while (currentP)
-	{
-		// creates processes table rows
-		if (currentP->processID == currentS->HighestWorkingset->processID)
-		{
-			sprintf(HTML_REPLACE, "<tr><td>%lu <i class=\"fa-solid fa-triangle-exclamation\"></td><td>%s</td><td>%lu</td><td>%zu <i class=\"fa-solid fa-triangle-exclamation\"></i></td><td>%zu</td><td>%zu</td><td>%zu</td>", currentP->processID, currentP->processName, currentP->PageFaultCount, currentP->WorkingSetSize, currentP->QuotaPagedPoolUsage, currentP->QuotaPeakPagedPoolUsage, currentP->PagefileUsage);
-			strcat(newFileSpace, HTML_REPLACE);
-			len = len + strlen(HTML_REPLACE);
-			newFileSpace[len] = NULL;
-		}
-		else
-		{
-			sprintf(HTML_REPLACE, "<tr><td>%lu</td><td>%s</td><td>%lu</td><td>%zu</td><td>%zu</td><td>%zu</td><td>%zu</td>", currentP->processID, currentP->processName, currentP->PageFaultCount, currentP->WorkingSetSize, currentP->QuotaPagedPoolUsage, currentP->QuotaPeakPagedPoolUsage, currentP->PagefileUsage);
-			strcat(newFileSpace, HTML_REPLACE);
-			len = len + strlen(HTML_REPLACE);
-			newFileSpace[len] = NULL;
-		}
-		t_DllList* currentD = currentP->DllList;
-		if (!currentD)
-		{
-			strcpy(HTML_REPLACE, "<td>No acces to Dll list</td>");
-			strcat(newFileSpace, HTML_REPLACE);
-			len = len + strlen(HTML_REPLACE);
-			newFileSpace[len] = NULL;
-		}
-		while (currentD)
-		{
-			// creates processes Dll select tag
-			if (!currentD->prev)
-			{
-				sprintf(HTML_REPLACE, "<td><select><option>%s</option>", currentD->dllName);
-				strcat(newFileSpace, HTML_REPLACE);
-				len = len + strlen(HTML_REPLACE);
-				newFileSpace[len] = NULL;
-			}
-			else
-			{
-				sprintf(HTML_REPLACE, "<option>%s</option>", currentD->dllName);
-				strcat(newFileSpace, HTML_REPLACE);
-				len = len + strlen(HTML_REPLACE);
-				newFileSpace[len] = NULL;
-			}
-			currentD = currentD->next;
-		}
-		strcpy(HTML_REPLACE, "</select></td></tr>");
-		strcat(newFileSpace, HTML_REPLACE);
-		len = len + strlen(HTML_REPLACE);
-		newFileSpace[len] = NULL;
-
-		currentP = currentP->next;
-	}
-	strcat(newFileSpace, found + strlen(SPSEPERATOR)); // adding the rest of the template
-
-	char pageName[25];
-	sprintf(pageName, "HTML_dist\\sample%d.html", currentS->sampleNum);
-	HtmlSaveIntoFile(pageName, newFileSpace);
-
-	free(newFileSpace);
-	free(htmlTemplate);
-}
-
 void SamplePgaeGenerator(t_SampleList* currentS)
 {
 	char* htmlTemplate = ReadAllFile("HTML_templates\\Tsample.html"); // get html template a from local folder
@@ -579,6 +499,13 @@ void SamplePgaeGenerator(t_SampleList* currentS)
 	char* found = strstr(htmlTemplate, SPSEPERATOR); // find token adress
 	unsigned long len = found - htmlTemplate; // found (bigger adress) - htmlTemplate (smaller adress)
 	char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + (strlen(HTML_REPLACE) * currentS->ProcessesCount * currentS->ProcessList->DllCount));
+	if (!newFileSpace)
+	{
+		err = GetLastError();
+		strE = strerror(err);
+		LogError(strE);
+		return;
+	}
 
 	strncpy(newFileSpace, htmlTemplate, len); // adding template till token position 
 	newFileSpace[len] = NULL;
@@ -673,6 +600,13 @@ void DllPgaeGenerator(t_GeneralDllList* currentD, unsigned int counter)
 	char* found = strstr(htmlTemplate, DPSEPERATOR); // find token adress
 	unsigned long len = found - htmlTemplate; // found (bigger adress) - htmlTemplate (smaller adress)
 	char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + (strlen(HTML_REPLACE) * currentD->AmountOfUsers));
+	if (!newFileSpace)
+	{
+		err = GetLastError();
+		strE = strerror(err);
+		LogError(strE);
+		return;
+	}
 
 	strncpy(newFileSpace, htmlTemplate, len); // adding template till token position 
 	newFileSpace[len] = NULL;
