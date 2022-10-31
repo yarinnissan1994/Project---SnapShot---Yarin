@@ -1,18 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(137, 137, 137);
-  color: rgb(250, 244, 244);
-  font-family: "DynaPuff";
+  background-color: rgb(36, 36, 36);
+  color: rgb(255, 239, 216);
+  font-family: "Caveat", cursive;
   text-align: center;
-}
-header {
-  background-color: rgb(76, 76, 76);
-  position: sticky;
-  top: 0;
-  border-bottom: 2px double red;
-  border-top: 2px double red;
-  width: 100%;
 }
 main {
   margin: 25px;
@@ -23,6 +15,12 @@ ul {
   flex-direction: row;
   padding-left: 25px;
   gap: 25px;
+}
+li {
+  width: 200px;
+}
+li:first-of-type {
+  height: 55px;
 }
 .btn {
   background-color: red;
@@ -87,11 +85,70 @@ div {
 }
 #git:hover {
   transform: scale(1.2);
-  color: rgb(255, 69, 69);
+  color: rgb(127, 0, 146);
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home-con {
+  background-color: rgb(36, 36, 36);
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home {
+  margin: 5px;
+  padding: 5px;
+  color: red;
+  font-size: 100px;
+  transition: 0.4s;
+}
+#home:hover {
+  transform: scale(1.2);
+  color: rgb(255, 131, 131);
+}
+#linkedin {
+  color: red;
+  font-size: 50px;
+  transition: 0.4s;
+}
+#linkedin:hover {
+  color: rgb(32, 95, 242);
+}
+#whatsapp {
+  color: red;
+  font-size: 50px;
+  transition: 0.4s;
+}
+#whatsapp:hover {
+  color: rgb(0, 214, 25);
+}
+#mail {
+  color: red;
+  font-size: 50px;
+  transition: 0.4s;
+}
+#mail:hover {
+  color: rgb(255, 255, 255);
+}
+#contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-item {
+  transition: 0.4s;
+}
+.contact-item:hover {
+  transform: scale(1.2);
 }
 h1,
 h2,
 h3,
 h4 {
-  text-shadow: -1px -1px 7px red;
+  text-shadow: 3px 3px 1px rgb(0, 0, 0);
 }

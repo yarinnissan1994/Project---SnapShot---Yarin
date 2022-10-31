@@ -61,6 +61,7 @@ td {
   padding: 5px;
   white-space: nowrap;
   overflow: auto;
+  transition: 0.4s;
 }
 h1 {
   background-color: red;
@@ -69,9 +70,19 @@ h1 {
   border-radius: 10px;
   width: fit-content;
   word-wrap: break-word;
+  text-shadow: 2px 2px 1px black;
 }
 h2 {
+  background-color: rgb(108, 108, 108);
+  width: fit-content;
+  border-radius: 25px;
+  padding: 10px;
   word-wrap: break-word;
+  text-shadow: 3px 3px 1px black;
+}
+h2:hover {
+  background-color: rgb(117, 78, 78);
+  cursor: pointer;
 }
 tr:nth-child(even) {
   background-color: rgb(76, 76, 76);
@@ -79,8 +90,18 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color: rgb(27, 27, 27);
 }
+tr:hover {
+  background-color: rgb(114, 81, 81);
+  cursor: pointer;
+}
+td:active {
+  background-color: rgb(126, 61, 61);
+  cursor: grab;
+  transform: scale(1.05);
+}
 tr:first-of-type {
   background-color: red;
+  text-shadow: 2px 2px 1px black;
 }
 select {
   padding: 5px;
