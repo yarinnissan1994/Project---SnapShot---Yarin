@@ -91,14 +91,21 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(36, 36, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(36, 36, 36, 1) 40%,
+    rgba(179, 0, 0, 0.7319970224417892) 60%,
+    rgba(36, 36, 36, 1) 75%
+  );
 }
 #home-con {
-  background-color: rgb(36, 36, 36);
   height: fit-content;
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 100px;
 }
 #home {
   margin: 5px;
@@ -110,6 +117,30 @@ header {
 #home:hover {
   transform: scale(1.2);
   color: rgb(255, 131, 131);
+}
+#martial-art {
+  margin: 5px;
+  padding: 5px;
+  color: rgb(250, 81, 81);
+  font-size: 80px;
+}
+#snowboard {
+  margin: 5px;
+  padding: 5px;
+  color: rgb(250, 81, 81);
+  font-size: 80px;
+}
+#guitar {
+  margin: 5px;
+  padding: 5px;
+  color: rgb(250, 81, 81);
+  font-size: 80px;
+}
+#boat {
+  margin: 5px;
+  padding: 5px;
+  color: rgb(250, 81, 81);
+  font-size: 80px;
 }
 #linkedin {
   color: red;
